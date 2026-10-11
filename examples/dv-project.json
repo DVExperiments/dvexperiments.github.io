@@ -1,0 +1,20 @@
+{
+  "title": "Your Project Title",
+  "tagline": "A memorable one-line introduction.",
+  "description": "Explain what this project actually does in one or two sentences.",
+  "category": "Games",
+  "platform": "Browser / JavaScript",
+  "year": "2026",
+  "overview": [
+    "Describe the purpose, inspiration, or problem this project explores.",
+    "Explain what someone can do with it or learn from it."
+  ],
+  "highlights": [
+    "A real feature the project currently has",
+    "Another real feature worth discovering"
+  ],
+  "tags": ["Interactive", "Prototype"],
+  "featured": false,
+  "visible": true,
+  "notice": "Optional additional information for visitors."
+}

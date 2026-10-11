@@ -1,75 +1,31 @@
-# Adding a project to DV Experiments
+# Add or edit a project in DV Experiments v1.1
 
-**Every project lives in `assets/projects.js`.** You do not have to create a new HTML page. Changes become visible as soon as GitHub Pages deploys your updated file.
+## New public GitHub repository
 
-## Step 1 — Copy a project entry
+You do not need to edit the hub. Simply publish the new repository. The hub discovers it automatically and shows it as **On GitHub**. Enabling **Settings → Pages** for that project switches the badge to **Live online** once GitHub's API reports Pages enabled.
 
-Add this example inside the `window.DV_PROJECTS = [ ... ];` array, separated from the previous entry by a comma:
+For nicer project descriptions, create a `dv-project.json` file in that repo's root. See `docs/PROJECT_METADATA.md` and `examples/dv-project.json`.
 
-```js
-{
-  slug: 'example-project',             // unique, lowercase, hyphen-separated
-  title: 'Example Project',            // shown on homepage and page heading
-  tagline: 'A short, memorable line.',
-  category: 'Games',                   // Simulations / Tools / Games
-  status: 'development',              // live / repository / development
-  platform: 'Python / Desktop',
-  year: '2026',
-  featured: false,                    // one published project can be featured
-  image: 'assets/cover-pocket-pal.svg',
-  imageAlt: 'Editorial illustration representing Example Project',
-  description: 'One or two sentences that explain what it does.',
-  overview: [
-    'What inspired this project and why does it exist?',
-    'What does someone actually do with it?'
-  ],
-  highlights: [
-    'A feature worth exploring',
-    'Another interesting system'
-  ],
-  tags: ['Python', 'Prototype', 'Creativity'],
-  liveUrl: '',                         // fill ONLY after browser site is live
-  repoUrl: '',                         // fill ONLY after public repo exists
-  notice: 'In development. Not yet publicly playable.'
-}
-```
+## Existing public project — correct its description
 
-For a new cover image, put a `.png`, `.jpg`, `.webp` or `.svg` in `assets/`, then replace `image` with its relative path. Use real screenshots if you have them. The provided images are **concept illustrations**, not in-game captures.
+Edit `dv-project.json` **in that project's repo** and commit. Refresh the hub after GitHub's CDN/API caches update. You do not need to copy the description into the hub repo.
 
-## Step 2 — Choose the correct availability
+## Work-in-progress not publicly published
 
-| Status | When to use | Buttons shown |
-| --- | --- | --- |
-| `live` | A published browser experience | Launch in browser if `liveUrl` is set; GitHub if `repoUrl` is set |
-| `repository` | Source code is public but no browser experience is live | View on GitHub |
-| `development` | Work-in-progress, prototype, or unpublished concept | No broken outgoing buttons |
+Add or edit an entry in the hub's `assets/projects.js` using the original v1.0 format. Set `status: 'development'` and no public repo URL. That draft continues to appear in the gallery. Once it becomes a public repo, GitHub discovery takes over (matches by `slug` or repository name).
 
-**Status does not automatically create a URL.** Supply actual published URLs in `liveUrl` and `repoUrl`. Only `https://` URLs are used as external links.
+## Hide an individual public repository
 
-## Step 3 — Save and publish
+In that repo's `dv-project.json`, set `"visible": false`. Or put its name in the hub's `window.DV_HIDDEN_REPOS` list in `assets/projects.js`. Public repositories used only for coursework, tests or support files can be excluded this way.
 
-Commit and push `assets/projects.js` and any new image to your GitHub Pages repository. Your card is instantly part of the search and category filters after the site updates.
+## Artwork
 
-Your project detail page will have this form:
+You can use a screenshot from the project's repo in its metadata: `"cover": "images/cover.png"` (relative to the **project repository root**, not the hub). Existing featured projects keep the included hub illustrations unless you override them.
 
-`https://dvexperiments.github.io/project.html?slug=example-project`
+## Troubleshooting
 
-## Editing the site look and feel
-
-Use `assets/styles.css`:
-
-- The top `:root` block defines the dark-theme palette.
-- `:root[data-theme="light"]` defines the light-theme palette.
-- `.hero` controls the main landing-page layout.
-- `.project-grid` and `.project-card` control the gallery.
-- `.detail-*` selectors control project pages.
-
-You can also replace the homepage's featured Live Lab text and illustration in `index.html` if you want to feature a different browser app. The large hero's preview is automatically based on the `featured` project in the data.
-
-## Ideas for future updates
-
-- Add actual screenshots and short gameplay GIFs.
-- Add progress updates or changelogs per project.
-- Create an opt-in GitHub API feed for public releases only.
-- Add iframe previews for apps that allow embedding, preferably with a full-screen launch alternative.
-- Add a **Live Observatory** when a genuinely persistent/shared Little Worlds simulation is available; the current browser experience is per-visitor, not a shared always-running server world.
+- **New repo isn't shown:** check it is public, under `DVExperiments`, not a fork/archived repository, and wasn't hidden.
+- **Description unchanged:** check filename `dv-project.json`, JSON syntax, file location in the repository root on its default branch, and allow for caching.
+- **Still shows On GitHub:** verify Pages is *enabled in that project repo* and the Github API sync succeeds. Making a repo public alone does not count as Live.
+- **Sync says OFFLINE:** GitHub API is inaccessible or rate-limited. Saved projects still load, but new ones can't be discovered until API requests succeed.
+- **Local file preview:** use GitHub Pages or a local web server. Opening `index.html` as a `file://` page can prevent network calls in some browsers.

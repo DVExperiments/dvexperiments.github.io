@@ -1,0 +1,17 @@
+{
+  "title": "NZ EcoSim",
+  "tagline": "An ecosystem simulation inspired by Aotearoa.",
+  "description": "Explore an interactive ecosystem simulation. Replace this description with your accurate summary of the current live version.",
+  "category": "Simulations",
+  "platform": "Browser",
+  "year": "2026",
+  "overview": [
+    "Describe the current published edition of NZ EcoSim here."
+  ],
+  "highlights": [
+    "Replace with a feature verified in the current version"
+  ],
+  "tags": ["Simulation", "Ecology"],
+  "featured": false,
+  "visible": true
+}

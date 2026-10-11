@@ -1,10 +1,9 @@
 /*
- * DV Experiments project catalogue.
- * This is the ONLY file you need to edit to add/remove projects or update links.
- * See docs/ADDING_A_PROJECT.md for field descriptions and examples.
- *
- * Important: Don't add a liveUrl until that website is actually published.
- * For works not yet on GitHub, leave repoUrl as an empty string.
+ * DV Experiments local catalogue (fallback and unpublished concepts).
+ * Public repositories and Pages status are discovered automatically via GitHub.
+ * For correct, up-to-date project descriptions, create dv-project.json in
+ * the ROOT of each PUBLIC project repository. See docs/PROJECT_METADATA.md.
+ * These entries are used while GitHub data is loading or unavailable.
  */
 window.DV_PROJECTS = [
   {
@@ -18,38 +17,38 @@ window.DV_PROJECTS = [
     featured: true,
     image: 'assets/cover-little-worlds.svg',
     imageAlt: 'Concept illustration of a living green island habitat',
-    description: 'A browser-based ecology sandbox inspired by Aotearoa. Explore the relationships between species, habitats, environmental pressures and human decisions.',
+    description: 'An interactive ecosystem-themed browser experiment. For the latest features and release information, visit the live project or its GitHub repository.',
     overview: [
-      'Little Worlds invites you to experiment with a changing ecosystem. Introduce native or invasive species, adjust conditions, and watch populations and habitats respond over simulated time.',
-      'The web edition runs locally in each visitor’s browser, with a journal, inspection tools, environmental overlays, and ways to save and share a simulated world.'
+      'Little Worlds is an experiment in building an interactive miniature ecosystem.',
+      'For current gameplay and features, see the latest published browser build.'
     ],
-    highlights: ['Introduce wildlife and change environmental conditions', 'Explore food webs, population changes and ecosystem alerts', 'Inspect individual creatures and explore map overlays', 'Save your own world locally or export its data'],
+    highlights: [],
     tags: ['Ecosystems', 'Simulation', 'JavaScript', 'AI-assisted'],
     liveUrl: 'https://dvexperiments.github.io/Little-Worlds-NZ/',
     repoUrl: 'https://github.com/DVExperiments/Little-Worlds-NZ',
-    notice: 'The web edition is a stylised educational model, not a scientific prediction tool. Every visitor runs an independent simulation in their own browser.'
+    notice: 'The project runs through GitHub Pages. The current feature list is maintained in its project repository.'
   },
   {
     slug: 'nz-ecosim',
     title: 'NZ EcoSim',
     tagline: 'A miniature Aotearoa ecosystem with unexpected consequences.',
     category: 'Simulations',
-    status: 'repository',
-    platform: 'Python / Desktop',
+    status: 'live', // User reports GitHub Pages enabled; live status is synced from GitHub.
+    platform: 'GitHub Pages / project',
     year: '2026',
     featured: false,
     image: 'assets/cover-nz-ecosim.svg',
     imageAlt: 'Stylised illustrated New Zealand island ecosystem and species',
-    description: 'A desktop ecosystem simulator featuring native wildlife, introduced predators, settlements, conservation challenges and interactive systems.',
+    description: 'An ecosystem simulation project inspired by Aotearoa New Zealand. Visit the published Pages site or project repository for details of the current release.',
     overview: [
-      'NZ EcoSim is a Python desktop project that simulates life on a miniature island: forests, oceans, wildlife, changing seasons, and the effects of settlement and introduced species.',
-      'The repository documents educational challenges, ecological events, a food web, class-report exports and tools for experimenting with different conservation approaches.'
+      'NZ EcoSim is a project exploring ecological simulation, with its current published version accessible through GitHub Pages.',
+      'Add dv-project.json to the NZ EcoSim repository to supply the precise features and description displayed here.'
     ],
-    highlights: ['Generate new islands and choose different scenarios', 'Observe wildlife, food webs and ecological change', 'Explore settlements and conservation interventions', 'Use lessons, charts and class-report tools'],
+    highlights: [],
     tags: ['Python', 'Ecology', 'Education', 'Desktop'],
-    liveUrl: '',
+    liveUrl: '', // Resolved from GitHub's Pages API when online.
     repoUrl: 'https://github.com/DVExperiments/nz-ecosim',
-    notice: 'Repository available. This is primarily a Python desktop application, not a published browser experience.'
+    notice: 'NZ EcoSim has a published GitHub Pages edition. The hub checks GitHub to resolve its live link and current availability.'
   },
   {
     slug: 'spaceport-07',
@@ -118,3 +117,10 @@ window.DV_PROJECTS = [
     notice: 'Concept and active development. This is not a publicly playable release.'
   }
 ];
+
+/* Optional: public repository names to suppress from the hub even when they
+ * have no dv-project.json yet. This works alongside `"visible": false` in a
+ * project's own JSON file. Entries are case-insensitive repo names.
+ * Example: window.DV_HIDDEN_REPOS = ['test-repo', 'scratchpad'];
+ */
+window.DV_HIDDEN_REPOS = [];

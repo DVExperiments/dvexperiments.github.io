@@ -1,0 +1,17 @@
+{
+  "title": "Little Worlds",
+  "tagline": "A miniature world that reacts to your choices.",
+  "description": "A browser-based ecosystem experiment. Replace this description with a precise summary of the version currently published on GitHub Pages.",
+  "category": "Simulations",
+  "platform": "Browser",
+  "year": "2026",
+  "overview": [
+    "Describe how visitors interact with your current published version of Little Worlds."
+  ],
+  "highlights": [
+    "Replace with one real feature from the current live build"
+  ],
+  "tags": ["Simulation", "Ecosystem"],
+  "featured": true,
+  "visible": true
+}
