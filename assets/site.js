@@ -90,8 +90,30 @@
         return parsed.href;
       } catch (_) { return ''; }
     }
+    // A curated, first-party Lab entry is always available, regardless of
+    // GitHub API availability, incomplete repo metadata or async sync ordering.
+    // Only the gallery cards use GitHub's dynamic Pages detection.
+    const PINNED_LAB_URL = 'https://dvexperiments.github.io/nz-ecosim/';
+    function pinnedLiveProject() {
+      const repo = projects.find(p => p.slug === DEFAULT_FEATURED) || {};
+      return {
+        ...repo,
+        slug: DEFAULT_FEATURED,
+        title: 'NZ EcoSim',
+        tagline: repo.tagline || 'Build an island. Watch an ecosystem change. Discover the consequences.',
+        description: repo.description || 'Explore an evolving Aotearoa-inspired ecosystem in your browser.',
+        image: repo.image || 'assets/cover-nz-ecosim.svg',
+        imageAlt: repo.imageAlt || 'Artwork depicting NZ EcoSim',
+        status: 'live',
+        embed: true,
+        liveUrl: PINNED_LAB_URL
+      };
+    }
     function optionsForLab() {
-      return projects.filter(p => p.embed === true && p.status === 'live' && embeddableUrl(p.liveUrl));
+      // Always list NZ EcoSim first; other opted-in projects remain optional.
+      const others = projects.filter(p => p.slug !== DEFAULT_FEATURED &&
+        p.embed === true && p.status === 'live' && embeddableUrl(p.liveUrl));
+      return [pinnedLiveProject(), ...others];
     }
     function stopEmbed() {
       loadedEmbed = null;
@@ -131,8 +153,9 @@
     function updateLiveChoices() {
       const list = optionsForLab();
       const existing = list.find(p => p.slug === activeLiveSlug);
-      const selected = existing || list.find(p => p.slug === DEFAULT_FEATURED) || list[0]
-        || projects.find(p => p.slug === DEFAULT_FEATURED) || projects[0];
+      // Initial selection is always NZ EcoSim; explicit visitor choices are
+      // preserved if the background GitHub catalogue refreshes.
+      const selected = existing || list[0];
       const choices = $('#live-choices');
       choices.innerHTML = list.map(p => `<button type="button" class="live-choice ${selected?.slug === p.slug ? 'is-active' : ''}" data-live-slug="${escapeHTML(p.slug)}" aria-pressed="${String(selected?.slug === p.slug)}">${escapeHTML(p.title)}</button>`).join('');
       choices.hidden = list.length < 2;
@@ -178,9 +201,7 @@
     stopButton.addEventListener('click', stopEmbed);
 
     function refresh(syncState) {
-      const featured = projects.find(p => p.slug === DEFAULT_FEATURED)
-        || projects.find(p => p.featured && p.status === 'live')
-        || projects.find(p => p.status === 'live') || projects[0];
+      const featured = pinnedLiveProject();
       if (featured) {
         $('#hero-featured-image').src = featured.image;
         $('#hero-featured-image').alt = featured.imageAlt;
