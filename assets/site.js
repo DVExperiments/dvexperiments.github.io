@@ -73,8 +73,114 @@
       emptyState.hidden = results.length > 0;
       count.textContent = `${results.length} ${results.length === 1 ? 'experiment' : 'experiments'} found`;
     }
+    // Site-level curatorial choice: project metadata cannot unexpectedly displace NZ EcoSim.
+    const DEFAULT_FEATURED = 'nz-ecosim';
+    let activeLiveSlug = DEFAULT_FEATURED;
+    let loadedEmbed = null; // {slug, url}; retain a running embed during GitHub metadata refresh.
+    const preview = $('#live-preview');
+    const simulation = $('#live-simulation');
+    const loadButton = $('#live-load');
+    const stopButton = $('#live-unload');
+
+    function embeddableUrl(url) {
+      if (!validExternal(url)) return '';
+      try {
+        const parsed = new URL(url);
+        if (parsed.protocol !== 'https:' || !parsed.hostname.endsWith('.github.io') || parsed.username || parsed.password) return '';
+        return parsed.href;
+      } catch (_) { return ''; }
+    }
+    function optionsForLab() {
+      return projects.filter(p => p.embed === true && p.status === 'live' && embeddableUrl(p.liveUrl));
+    }
+    function stopEmbed() {
+      loadedEmbed = null;
+      simulation.replaceChildren();
+      simulation.hidden = true;
+      preview.hidden = false;
+      stopButton.hidden = true;
+      $('#live-frame-status').textContent = 'READY TO EXPLORE';
+    }
+    function showLiveProject(p) {
+      const url = embeddableUrl(p.liveUrl);
+      const changed = activeLiveSlug !== p.slug;
+      activeLiveSlug = p.slug;
+      if (changed || (loadedEmbed && loadedEmbed.url !== url)) stopEmbed();
+      $('#live-title').textContent = p.tagline || p.title;
+      $('#live-description').textContent = p.description;
+      $('#live-cover').src = p.image;
+      $('#live-cover').alt = p.imageAlt || `Cover image for ${p.title}`;
+      $('#live-embed-heading').textContent = `${p.title.toUpperCase()} / LIVE INTERACTIVE PREVIEW`;
+      loadButton.textContent = `▶ Load ${p.title}`;
+      loadButton.disabled = !url;
+      $('#live-load-note').textContent = url
+        ? 'The simulation starts when you choose to load it. Click inside to use keyboard controls. First load may take a moment.'
+        : 'The browser edition is not currently available. See the project details instead.';
+      const launch = $('#live-launch');
+      launch.href = url || detailUrl(p);
+      launch.target = url ? '_blank' : '_self';
+      launch.rel = url ? 'noopener noreferrer' : '';
+      launch.innerHTML = `${url ? 'Open' : 'View'} ${escapeHTML(p.title)} ${url ? 'full-screen' : 'details'} <span aria-hidden="true">↗</span>`;
+      $('#live-learn').href = detailUrl(p);
+      if (loadedEmbed && loadedEmbed.slug === p.slug && loadedEmbed.url === url) {
+        preview.hidden = true;
+        simulation.hidden = false;
+        stopButton.hidden = false;
+      }
+    }
+    function updateLiveChoices() {
+      const list = optionsForLab();
+      const existing = list.find(p => p.slug === activeLiveSlug);
+      const selected = existing || list.find(p => p.slug === DEFAULT_FEATURED) || list[0]
+        || projects.find(p => p.slug === DEFAULT_FEATURED) || projects[0];
+      const choices = $('#live-choices');
+      choices.innerHTML = list.map(p => `<button type="button" class="live-choice ${selected?.slug === p.slug ? 'is-active' : ''}" data-live-slug="${escapeHTML(p.slug)}" aria-pressed="${String(selected?.slug === p.slug)}">${escapeHTML(p.title)}</button>`).join('');
+      choices.hidden = list.length < 2;
+      if (selected) showLiveProject(selected);
+    }
+    $('#live-choices').addEventListener('click', e => {
+      const choice = e.target.closest('[data-live-slug]');
+      if (!choice) return;
+      const p = optionsForLab().find(x => x.slug === choice.dataset.liveSlug);
+      if (!p) return;
+      showLiveProject(p);
+      updateLiveChoices();
+    });
+    loadButton.addEventListener('click', () => {
+      const p = optionsForLab().find(x => x.slug === activeLiveSlug);
+      if (!p) return;
+      const url = embeddableUrl(p.liveUrl);
+      if (!url) return;
+      if (loadedEmbed?.slug === p.slug && loadedEmbed?.url === url) return;
+      stopEmbed();
+      const iframe = document.createElement('iframe');
+      iframe.title = `${p.title} — interactive browser experiment`;
+      iframe.src = url;
+      iframe.loading = 'eager';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.setAttribute('allow', 'fullscreen');
+      // Host only explicitly opted-in GitHub Pages apps, not arbitrary repo URLs.
+      // Do not sandbox same-origin Pyodide apps with scripts+same-origin (ineffective isolation).
+      simulation.appendChild(iframe);
+      preview.hidden = true;
+      simulation.hidden = false;
+      stopButton.hidden = false;
+      $('#live-frame-status').textContent = 'STARTING BROWSER SIMULATION';
+      iframe.addEventListener('load', () => {
+        if (loadedEmbed?.slug === p.slug) $('#live-frame-status').textContent = 'SITE LOADED · WAIT FOR SIMULATION';
+      });
+      iframe.addEventListener('error', () => {
+        if (loadedEmbed?.slug === p.slug) $('#live-frame-status').textContent = 'FAILED TO LOAD · OPEN FULL-SCREEN';
+      });
+      loadedEmbed = {slug:p.slug, url};
+    });
+    stopButton.addEventListener('click', stopEmbed);
+
     function refresh(syncState) {
-      const featured = projects.find(p => p.featured && p.status === 'live') || projects.find(p => p.status === 'live') || projects[0];
+      const featured = projects.find(p => p.slug === DEFAULT_FEATURED)
+        || projects.find(p => p.featured && p.status === 'live')
+        || projects.find(p => p.status === 'live') || projects[0];
       if (featured) {
         $('#hero-featured-image').src = featured.image;
         $('#hero-featured-image').alt = featured.imageAlt;
@@ -87,17 +193,7 @@
           ? '<span class="pulse-dot"></span> OPEN IN BROWSER'
           : '<span class="status-dot"></span> FEATURED EXPERIMENT';
       }
-      const liveFeatured = projects.find(p => p.featured && p.status === 'live') || projects.find(p => p.status === 'live');
-      if (liveFeatured) {
-        $('#live-title').textContent = liveFeatured.tagline || liveFeatured.title;
-        $('#live-description').textContent = liveFeatured.description;
-        const launch = $('#live-launch');
-        launch.href = validExternal(liveFeatured.liveUrl) || detailUrl(liveFeatured);
-        launch.innerHTML = `Visit ${escapeHTML(liveFeatured.title)} <span aria-hidden="true">↗</span>`;
-        $('#live-learn').href = detailUrl(liveFeatured);
-        $('#live-cover').src = liveFeatured.image;
-        $('#live-cover').alt = liveFeatured.imageAlt || '';
-      }
+      updateLiveChoices();
       $('#stat-projects').textContent = String(projects.length).padStart(2, '0');
       $('#stat-live').textContent = String(projects.filter(p => p.status === 'live').length).padStart(2, '0');
       catalogueSync.textContent = syncState === 'success' ? '↻ SYNCED WITH PUBLIC GITHUB REPOS'

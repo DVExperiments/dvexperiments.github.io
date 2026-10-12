@@ -14,7 +14,8 @@ window.DV_PROJECTS = [
     status: 'live',
     platform: 'Browser / JavaScript',
     year: '2026',
-    featured: true,
+    featured: false,
+    embed: true,
     image: 'assets/cover-little-worlds.svg',
     imageAlt: 'Concept illustration of a living green island habitat',
     description: 'An interactive ecosystem-themed browser experiment. For the latest features and release information, visit the live project or its GitHub repository.',
@@ -33,10 +34,11 @@ window.DV_PROJECTS = [
     title: 'NZ EcoSim',
     tagline: 'A miniature Aotearoa ecosystem with unexpected consequences.',
     category: 'Simulations',
-    status: 'live', // User reports GitHub Pages enabled; live status is synced from GitHub.
-    platform: 'GitHub Pages / project',
+    status: 'live', // Browser launcher exists in repository; live status is verified by GitHub sync.
+    platform: 'Python / pygame-ce / Browser + Windows desktop',
     year: '2026',
-    featured: false,
+    featured: true,
+    embed: true,
     image: 'assets/cover-nz-ecosim.svg',
     imageAlt: 'Stylised illustrated New Zealand island ecosystem and species',
     description: 'An ecosystem simulation project inspired by Aotearoa New Zealand. Visit the published Pages site or project repository for details of the current release.',
@@ -46,9 +48,9 @@ window.DV_PROJECTS = [
     ],
     highlights: [],
     tags: ['Python', 'Ecology', 'Education', 'Desktop'],
-    liveUrl: '', // Resolved from GitHub's Pages API when online.
+    liveUrl: 'https://dvexperiments.github.io/nz-ecosim/', // GitHub Pages project path; verified/corrected by GitHub sync.
     repoUrl: 'https://github.com/DVExperiments/nz-ecosim',
-    notice: 'NZ EcoSim has a published GitHub Pages edition. The hub checks GitHub to resolve its live link and current availability.'
+    notice: 'NZ EcoSim has a browser launcher built with Pyodide and pygame-ce, as well as a Python Windows desktop version. The browser edition has a substantial first-time download; the hub checks GitHub Pages availability on load.'
   },
   {
     slug: 'spaceport-07',

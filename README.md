@@ -9,7 +9,15 @@ An independent creative-tech portfolio and experimental software library built w
 - Reads an optional **`dv-project.json`** from the root of each project repository for descriptions, features, tags, links and cover images.
 - Automatically adds a new public repository to the gallery with a working detail page and filters.
 - Retains manually drafted/unpublished concepts and fallback data if the GitHub API is unavailable.
-- The featured Live Lab description and image can reflect per-repo project metadata.
+- The Live Lab defaults to NZ EcoSim, with an optional embedded browser simulation and a switcher for other opted-in GitHub Pages experiments.
+
+## Live Lab — NZ EcoSim and embedded projects
+
+The homepage now features **NZ EcoSim** in the hero and Live Lab. The embedded simulation is **opt-in**: visitors click **Load NZ EcoSim** so its ~20 MB Python/WebAssembly bundle is not downloaded on every page load. A full-screen external link remains available.
+
+Other eligible live browser projects (for example Little Worlds) appear as a selector. To mark another GitHub Pages project as embeddable, add `"embed": true` to its root `dv-project.json`. Embeds only load from `https://*.github.io/` URLs. The Live Lab featured choice is pinned in `assets/site.js` (`DEFAULT_FEATURED = "nz-ecosim"`) to avoid accidental changes when individual repos update their JSON. Keep only trustworthy apps with an embed flag.
+
+The existing `index.html`, `assets/site.js`, `assets/styles.css`, `assets/projects.js`, and `assets/project-sync.js` are updated. Replace these files in your **hub** repository, not the NZ EcoSim project. Existing pages, themes, filters, and GitHub sync remain.
 
 ## Installation
 

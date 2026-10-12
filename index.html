@@ -36,7 +36,7 @@
     </div>
     <div class="hero-art" id="featured-hero" aria-label="Featured experiment">
       <div class="art-orbit orbit-one" aria-hidden="true"></div><div class="art-orbit orbit-two" aria-hidden="true"></div>
-      <div class="hero-window"><div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title">FEATURED EXPERIMENT</span><span class="window-control" aria-hidden="true">↗</span></div><a id="hero-featured-image-link" class="hero-window-image" href="project.html?slug=little-worlds"><img id="hero-featured-image" src="assets/cover-little-worlds.svg" alt="Stylised ecosystem illustration"></a><div class="window-bottom"><div><span class="live-indicator"><span class="pulse-dot"></span> OPEN IN BROWSER</span><strong id="hero-featured-title">Little Worlds</strong></div><a class="small-arrow" id="hero-featured-link" href="project.html?slug=little-worlds" aria-label="View featured project">↗</a></div></div>
+      <div class="hero-window"><div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title">FEATURED EXPERIMENT</span><span class="window-control" aria-hidden="true">↗</span></div><a id="hero-featured-image-link" class="hero-window-image" href="project.html?slug=nz-ecosim"><img id="hero-featured-image" src="assets/cover-nz-ecosim.svg" alt="Stylised ecosystem illustration"></a><div class="window-bottom"><div><span class="live-indicator"><span class="pulse-dot"></span> OPEN IN BROWSER</span><strong id="hero-featured-title">NZ EcoSim</strong></div><a class="small-arrow" id="hero-featured-link" href="project.html?slug=nz-ecosim" aria-label="View featured project">↗</a></div></div>
       <span class="floating-note note-a" aria-hidden="true">// EXPLORE THE UNKNOWN</span><span class="floating-note note-b" aria-hidden="true">01 / IN THE LAB</span>
     </div>
   </section>
@@ -49,7 +49,37 @@
     <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌁</span><h3>No matching experiments</h3><p>Try a different keyword or reset the filters.</p><button type="button" class="button button-outline" id="reset-filters">Clear filters</button></div>
     <noscript><p>Please enable JavaScript to browse the interactive project gallery. You can also explore the <a href="https://github.com/DVExperiments">GitHub repositories directly</a>.</p></noscript>
   </section>
-  <section id="live" class="feature-band section-space" aria-labelledby="live-title"><div class="shell feature-layout"><div class="feature-copy"><p class="section-kicker">02 / LIVE LAB</p><div class="live-indicator"><span class="pulse-dot"></span> PUBLISHED ON GITHUB PAGES</div><h2 id="live-title">A little world<br>that won't sit still<span class="period">.</span></h2><p id="live-description">Explore this featured browser experiment.</p><div class="feature-buttons"><a class="button button-primary" id="live-launch" href="https://dvexperiments.github.io/Little-Worlds-NZ/" target="_blank" rel="noopener noreferrer">Launch Little Worlds <span aria-hidden="true">↗</span></a><a class="text-link" id="live-learn" href="project.html?slug=little-worlds">How it works <span aria-hidden="true">→</span></a></div><div class="feature-detail"><span>✳ MADE FOR EXPLORING</span><span>✳ VIEW PROJECT DETAILS</span></div></div><div class="feature-visual"><div class="feature-frame"><div class="feature-frame-head"><span>live_project / preview</span><span>○ ○ ○</span></div><img id="live-cover" src="assets/cover-little-worlds.svg" alt="Illustration representing Little Worlds" loading="lazy"><div class="feature-frame-foot"><span><span class="pulse-dot"></span> PUBLISHED SITE</span><span>WEB EXPERIMENT / 2026</span></div></div><span class="feature-annotation" aria-hidden="true">FOLLOW YOUR CURIOSITY ↗</span></div></div></section>
+  <section id="live" class="feature-band section-space" aria-labelledby="live-title">
+    <div class="shell feature-layout">
+      <div class="feature-copy">
+        <p class="section-kicker">02 / LIVE LAB</p>
+        <div class="live-indicator"><span class="pulse-dot"></span> INTERACTIVE GITHUB PAGES EXPERIMENT</div>
+        <h2 id="live-title">Build an island. Watch an ecosystem change. Discover the consequences.</h2>
+        <p id="live-description">NZ EcoSim is an Aotearoa-inspired ecosystem simulation. Explore a changing island and see how species, people and conservation decisions interact.</p>
+        <div class="live-choices" id="live-choices" role="group" aria-label="Choose a Live Lab experiment"></div>
+        <div class="feature-buttons">
+          <a class="button button-primary" id="live-launch" href="https://dvexperiments.github.io/nz-ecosim/" target="_blank" rel="noopener noreferrer">Open NZ EcoSim full-screen <span aria-hidden="true">↗</span></a>
+          <a class="text-link" id="live-learn" href="project.html?slug=nz-ecosim">How it works <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="feature-detail"><span>✳ RUNS IN YOUR BROWSER</span><span>✳ FIRST LOAD MAY DOWNLOAD ~20 MB</span></div>
+      </div>
+      <div class="feature-visual">
+        <div class="feature-frame is-interactive">
+          <div class="feature-frame-head"><span id="live-embed-heading">NZ ECOSIM / LIVE INTERACTIVE PREVIEW</span><span>○ ○ ○</span></div>
+          <div class="feature-preview" id="live-preview">
+            <img id="live-cover" src="assets/cover-nz-ecosim.svg" alt="Artwork depicting NZ EcoSim" loading="lazy">
+            <div class="feature-preview-controls">
+              <button class="button button-primary" id="live-load" type="button">▶ Load NZ EcoSim</button>
+              <p id="live-load-note">The simulation starts only when you choose to load it. Click inside it to use keyboard controls.</p>
+            </div>
+          </div>
+          <div class="feature-simulation" id="live-simulation" hidden aria-label="Embedded browser simulation"></div>
+          <div class="feature-frame-foot"><span><span class="pulse-dot"></span><span id="live-frame-status">READY TO EXPLORE</span></span><button type="button" class="live-unload" id="live-unload" hidden>Stop simulation ×</button></div>
+        </div>
+        <p class="embed-help" id="live-help">If the embedded version is too small or doesn't load, use the full-screen link above.</p>
+      </div>
+    </div>
+  </section>
   <section class="about-section section-space shell" id="about" aria-labelledby="about-title"><div class="about-layout"><div><p class="section-kicker">03 / BEHIND THE BUTTONS</p><h2 id="about-title">More curious<br>than finished<span class="period">.</span></h2></div><div class="about-copy"><p>DV Experiments is a place for testing ideas through making. Games, interactive systems, creative coding, AI-assisted prototypes — if an idea sounds interesting enough to try, it probably belongs here.</p><p>Each project has its own space, its own source code where published, and its own journey. This hub is the front door to all of them.</p><div class="about-links"><a href="https://github.com/DVExperiments" target="_blank" rel="noopener noreferrer">Explore the GitHub <span aria-hidden="true">↗</span></a><a href="#projects">Back to projects <span aria-hidden="true">↑</span></a></div></div></div></section>
 </main>
 <footer class="footer"><div class="shell footer-inner"><a class="brand footer-brand" href="./"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span class="brand-wordmark">DV<span class="brand-slash">/</span>EXPERIMENTS</span></a><span>Small ideas. Strange worlds. Built to keep evolving.</span><div><span>© <span class="current-year">2026</span> DV Experiments</span><a href="#main">Back to top ↑</a></div></div></footer>

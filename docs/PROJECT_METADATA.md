@@ -44,7 +44,8 @@ JSON rules: every key and text value uses double quotes, entries are separated b
 | `tags` | list of texts | Tags and search keywords. |
 | `cover` | text | Optional path **relative to your project repo** such as `assets/cover.png`, or full HTTPS image URL. If absent, hub artwork is used. |
 | `imageAlt` | text | Accessible description of the cover. |
-| `featured` | boolean | `true` to prioritize this project in the hero; only one recommended. |
+| `featured` | boolean | Legacy catalogue priority hint; the homepage hero/Live Lab is pinned to NZ EcoSim in `assets/site.js`. |
+| `embed` | boolean | Set `true` for a **browser-playable** GitHub Pages project to include it in the Live Lab chooser. Never enable for documentation-only sites. |
 | `visible` | boolean | `false` to exclude this public repository from the hub. |
 | `liveUrl` | HTTPS URL | Optional override, e.g. for a custom domain. Used **only** when GitHub Pages is enabled. |
 | `notice` | text | Optional availability note. |

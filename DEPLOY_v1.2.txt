@@ -1,0 +1,30 @@
+DV EXPERIMENTS DASHBOARD — LIVE LAB v1.2
+
+What this update does:
+- Features NZ EcoSim (instead of Little Worlds) in the main homepage hero.
+- Shows NZ EcoSim by default in Live Lab.
+- Lets visitors click “Load NZ EcoSim” to open its browser build inside the dashboard.
+- Provides “Open full-screen” for the larger and more reliable experience.
+- Provides a switcher to other browser-playable GitHub Pages projects (Little Worlds initially).
+- Preserves GitHub auto-sync, existing cards, project detail pages, and themes.
+
+UPLOAD:
+1) Open the GitHub repository DVExperiments/dvexperiments.github.io.
+2) Upload the CONTENTS of this ZIP directly to the repo root, not inside a new folder.
+3) Replace existing index.html, assets/site.js, assets/styles.css, assets/projects.js,
+   assets/project-sync.js, README.md, and docs/PROJECT_METADATA.md.
+4) Commit changes and let GitHub Pages redeploy.
+5) Refresh https://dvexperiments.github.io/ (Ctrl+Shift+R if needed).
+6) Scroll to LIVE LAB. Click Load NZ EcoSim to start the embedded simulation.
+
+UPDATING OTHER EMBEDDABLE PROJECTS:
+Put "embed": true in the other project's dv-project.json (repository root)
+AND enable GitHub Pages for the repo. Only projects with playable browser versions
+should set this flag. The chooser updates through auto-sync. GitHub.io URLs only.
+
+NOTES:
+- NZ EcoSim's own GitHub Pages version includes a Pyodide/Pygame-ce launcher.
+  Its first load downloads a large WebAssembly/Python runtime and may be slow.
+- Embedding may be less comfortable on small screens; use Open full-screen.
+- GitHub Pages deployment and actual simulation startup have not been
+  tested end-to-end from this environment; JS syntax and HTML structure were checked.
