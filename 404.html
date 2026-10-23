@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found</title>
+  <script>
+    // A path like /some-project that isn't its own GitHub Pages site lands here:
+    // try it as a project page on the dashboard.
+    var seg = location.pathname.split('/').filter(Boolean)[0];
+    location.replace('/' + (seg ? '#/p/' + encodeURIComponent(decodeURIComponent(seg)) : ''));
+  </script>
+</head>
+<body><p><a href="/">Go to all projects</a></p></body>
+</html>

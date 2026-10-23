@@ -1,0 +1,26 @@
+{
+  "username": "DVExperiments",
+  "siteTitle": "DV Experiments",
+  "tagline": "Simulations, data visualisations and creative software experiments.",
+  "intro": "Every public repository on my GitHub appears here automatically. Open a project to read about it, try the live version or browse the source.",
+
+  "featured": ["nz-ecosim", "earthwire", "nimlets"],
+  "exclude": [],
+  "includeForks": false,
+  "includeArchived": true,
+  "defaultCategory": "Experiments",
+
+  "projects": {
+    "nz-ecosim":        { "category": "Simulations & Worlds" },
+    "little-worlds-nz": { "category": "Simulations & Worlds" },
+    "nimlets":          { "category": "Games & Interactive" },
+    "lumin":            { "category": "Creative Experiments" },
+    "lumin2":           { "category": "Creative Experiments" },
+    "goodscroll":       { "category": "Creative Experiments" },
+    "earthwire":        { "category": "Data & Visualisation" },
+    "worldpulse":       { "category": "Data & Visualisation" },
+    "worldpulse-2":     { "category": "Data & Visualisation" },
+    "ripple-map":       { "category": "Tools & Utilities" },
+    "stillroom":        { "category": "Tools & Utilities" }
+  }
+}

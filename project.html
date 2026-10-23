@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // Old dashboard links looked like project.html?repo=name. Send them to the new project page.
+    var q = new URLSearchParams(location.search);
+    var name = q.get('repo') || q.get('id') || q.get('name') || q.get('project') || q.get('slug') || '';
+    location.replace('./' + (name ? '#/p/' + encodeURIComponent(name) : ''));
+  </script>
+</head>
+<body><p><a href="./">Go to all projects</a></p></body>
+</html>
