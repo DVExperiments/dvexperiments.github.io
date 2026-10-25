@@ -4,7 +4,7 @@
   "tagline": "Simulations, data visualisations and creative software experiments.",
   "intro": "Every public repository on my GitHub appears here automatically. Open a project to read about it, try the live version or browse the source.",
 
-  "featured": ["nz-ecosim", "earthwire", "nimlets"],
+  "featured": ["Universe", "nz-ecosim", "earthwire", "nimlets"],
   "exclude": ["old-dashboard"],
   "includeForks": false,
   "includeArchived": true,
