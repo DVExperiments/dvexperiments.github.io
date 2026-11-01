@@ -10,17 +10,48 @@
   "includeArchived": true,
   "defaultCategory": "Experiments",
 
-  "projects": {
-    "nz-ecosim":        { "category": "Simulations & Worlds" },
-    "little-worlds-nz": { "category": "Simulations & Worlds" },
-    "nimlets":          { "category": "Games & Interactive" },
-    "lumin":            { "category": "Creative Experiments" },
-    "lumin2":           { "category": "Creative Experiments" },
-    "goodscroll":       { "category": "Creative Experiments" },
-    "earthwire":        { "category": "Data & Visualisation" },
-    "worldpulse":       { "category": "Data & Visualisation" },
-    "worldpulse-2":     { "category": "Data & Visualisation" },
-    "ripple-map":       { "category": "Tools & Utilities" },
-    "stillroom":        { "category": "Tools & Utilities" }
-  }
+ 
+"projects": {
+  "universe":          { "category": "Pixel Universe" },
+  "glacial":           { "category": "Pixel Universe" },
+  "senate":            { "category": "Pixel Universe" },
+  "city":              { "category": "Pixel Universe" },
+  "bookmaker":         { "category": "Pixel Universe" },
+  "museum":            { "category": "Pixel Universe" },
+  "weather":           { "category": "Pixel Universe" },
+  "bank":              { "category": "Pixel Universe" },
+  "exchange":          { "category": "Pixel Universe" },
+  "pixelfm":           { "category": "Pixel Universe" },
+  "jobcentre":         { "category": "Pixel Universe" },
+  "pixelhigh":         { "category": "Pixel Universe" },
+  "university":        { "category": "Pixel Universe" },
+  "dailypixel":        { "category": "Pixel Universe" },
+
+  "nz-ecosim":         { "category": "Simulations & Worlds" },
+  "little-worlds-nz":  { "category": "Simulations & Worlds" },
+  "formicarium":       { "category": "Simulations & Worlds" },
+
+  "nimlets":           { "category": "Games & Interactive" },
+
+  "lumin":             { "category": "Creative Experiments" },
+  "lumin2":            { "category": "Creative Experiments" },
+  "goodscroll":        { "category": "Creative Experiments" },
+  "wrong-machine":     { "category": "Creative Experiments" },
+  "glyph-lab":         { "category": "Creative Experiments" },
+
+  "earthwire":         { "category": "Data & Visualisation" },
+  "worldpulse":        { "category": "Data & Visualisation" },
+  "worldpulse-2":      { "category": "Data & Visualisation" },
+  "market-rain":       { "category": "Data & Visualisation" },
+  "dialogue-lab":      { "category": "Data & Visualisation" },
+
+  "ripple-map":        { "category": "Tools & Utilities" },
+  "stillroom":         { "category": "Tools & Utilities" },
+  "floorplan":         { "category": "Tools & Utilities" },
+  "dinner-deck":       { "category": "Tools & Utilities" },
+
+  "playlab":           { "category": "Learning & Futures" },
+  "design-shift":      { "category": "Learning & Futures" }
+}
+
 }
