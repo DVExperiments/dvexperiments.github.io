@@ -3,55 +3,323 @@
   "siteTitle": "DV Experiments",
   "tagline": "Simulations, data visualisations and creative software experiments.",
   "intro": "Every public repository on my GitHub appears here automatically. Open a project to read about it, try the live version or browse the source.",
-
-  "featured": ["Universe", "nz-ecosim", "earthwire", "nimlets"],
-  "exclude": ["old-dashboard"],
+  "featured": [
+    "Universe",
+    "nz-ecosim",
+    "earthwire",
+    "nimlets"
+  ],
+  "exclude": [
+    "old-dashboard"
+  ],
   "includeForks": false,
   "includeArchived": true,
   "defaultCategory": "Experiments",
-
- 
-"projects": {
-  "universe":          { "category": "Pixel Universe" },
-  "glacial":           { "category": "Pixel Universe" },
-  "senate":            { "category": "Pixel Universe" },
-  "city":              { "category": "Pixel Universe" },
-  "bookmaker":         { "category": "Pixel Universe" },
-  "museum":            { "category": "Pixel Universe" },
-  "weather":           { "category": "Pixel Universe" },
-  "bank":              { "category": "Pixel Universe" },
-  "exchange":          { "category": "Pixel Universe" },
-  "pixelfm":           { "category": "Pixel Universe" },
-  "jobcentre":         { "category": "Pixel Universe" },
-  "pixelhigh":         { "category": "Pixel Universe" },
-  "university":        { "category": "Pixel Universe" },
-  "dailypixel":        { "category": "Pixel Universe" },
-
-  "nz-ecosim":         { "category": "Simulations & Worlds" },
-  "little-worlds-nz":  { "category": "Simulations & Worlds" },
-  "formicarium":       { "category": "Simulations & Worlds" },
-
-  "nimlets":           { "category": "Games & Interactive" },
-
-  "lumin":             { "category": "Creative Experiments" },
-  "lumin2":            { "category": "Creative Experiments" },
-  "goodscroll":        { "category": "Creative Experiments" },
-  "wrong-machine":     { "category": "Creative Experiments" },
-  "glyph-lab":         { "category": "Creative Experiments" },
-
-  "earthwire":         { "category": "Data & Visualisation" },
-  "worldpulse":        { "category": "Data & Visualisation" },
-  "worldpulse-2":      { "category": "Data & Visualisation" },
-  "market-rain":       { "category": "Data & Visualisation" },
-  "dialogue-lab":      { "category": "Data & Visualisation" },
-
-  "ripple-map":        { "category": "Tools & Utilities" },
-  "stillroom":         { "category": "Tools & Utilities" },
-  "floorplan":         { "category": "Tools & Utilities" },
-  "dinner-deck":       { "category": "Tools & Utilities" },
-
-  "playlab":           { "category": "Learning & Futures" },
-  "design-shift":      { "category": "Learning & Futures" }
-}
-
+  "projects": {
+    "universe": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Interconnected Systems",
+        "Emergent Behaviour",
+        "Simulation"
+      ]
+    },
+    "glacial": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Experimental Game",
+        "Slow Gaming",
+        "Simulation"
+      ]
+    },
+    "senate": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Politics Simulation",
+        "Agents",
+        "Emergent Behaviour"
+      ]
+    },
+    "city": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "City Simulation",
+        "Systems Thinking",
+        "Emergent Behaviour"
+      ]
+    },
+    "bookmaker": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Prediction",
+        "Simulation",
+        "Game"
+      ]
+    },
+    "museum": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Virtual Museum",
+        "Worldbuilding",
+        "Interactive"
+      ]
+    },
+    "weather": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Weather Simulation",
+        "Interconnected Systems",
+        "Data"
+      ]
+    },
+    "bank": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Economy",
+        "Banking Simulation",
+        "Interconnected Systems"
+      ]
+    },
+    "exchange": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Stock Market",
+        "Economy",
+        "Trading Simulation"
+      ]
+    },
+    "pixelfm": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Radio",
+        "Procedural Content",
+        "Worldbuilding"
+      ]
+    },
+    "jobcentre": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Employment",
+        "Economy",
+        "Simulation"
+      ]
+    },
+    "pixelhigh": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Education Simulation",
+        "Agents",
+        "Worldbuilding"
+      ]
+    },
+    "university": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "Education Simulation",
+        "Agents",
+        "Worldbuilding"
+      ]
+    },
+    "dailypixel": {
+      "category": "Pixel Universe",
+      "tags": [
+        "Pixel Universe",
+        "News",
+        "Procedural Content",
+        "Worldbuilding"
+      ]
+    },
+    "nz-ecosim": {
+      "category": "Simulations & Worlds",
+      "tags": [
+        "Ecology",
+        "Ecosystem Simulation",
+        "Emergent Behaviour",
+        "New Zealand"
+      ]
+    },
+    "little-worlds-nz": {
+      "category": "Simulations & Worlds",
+      "tags": [
+        "Simulation",
+        "Ecology",
+        "Worldbuilding",
+        "New Zealand"
+      ]
+    },
+    "formicarium": {
+      "category": "Simulations & Worlds",
+      "tags": [
+        "Ant Colony",
+        "Agent-Based Simulation",
+        "Pheromone Trails",
+        "Emergent Behaviour"
+      ]
+    },
+    "nimlets": {
+      "category": "Games & Interactive",
+      "tags": [
+        "Virtual Creatures",
+        "Interactive",
+        "Simulation",
+        "Play"
+      ]
+    },
+    "lumin": {
+      "category": "Creative Experiments",
+      "tags": [
+        "Generative Art",
+        "Weather",
+        "Interactive Art",
+        "Creative Coding"
+      ]
+    },
+    "lumin2": {
+      "category": "Creative Experiments",
+      "tags": [
+        "Generative Art",
+        "Weather-Reactive",
+        "Interactive Art",
+        "Creative Coding"
+      ]
+    },
+    "goodscroll": {
+      "category": "Creative Experiments",
+      "tags": [
+        "Research Discovery",
+        "Positive Content",
+        "Content Exploration",
+        "Web App"
+      ]
+    },
+    "wrong-machine": {
+      "category": "Creative Experiments",
+      "tags": [
+        "Databending",
+        "Glitch Art",
+        "Audio",
+        "Image Processing"
+      ]
+    },
+    "glyph-lab": {
+      "category": "Creative Experiments",
+      "tags": [
+        "ASCII Art",
+        "Image Processing",
+        "Digital Art",
+        "Creative Coding"
+      ]
+    },
+    "earthwire": {
+      "category": "Data & Visualisation",
+      "tags": [
+        "Global News",
+        "Interactive Globe",
+        "Data Visualisation",
+        "Geography"
+      ]
+    },
+    "worldpulse": {
+      "category": "Data & Visualisation",
+      "tags": [
+        "Global News",
+        "Interactive Globe",
+        "Data Visualisation",
+        "Geography"
+      ]
+    },
+    "worldpulse-2": {
+      "category": "Data & Visualisation",
+      "tags": [
+        "Global News",
+        "Interactive Globe",
+        "Data Visualisation",
+        "Geography"
+      ]
+    },
+    "market-rain": {
+      "category": "Data & Visualisation",
+      "tags": [
+        "Stock Market",
+        "Financial Data",
+        "Data Visualisation",
+        "Matrix Aesthetic"
+      ]
+    },
+    "dialogue-lab": {
+      "category": "Data & Visualisation",
+      "tags": [
+        "AI Conversations",
+        "Language Models",
+        "Experimentation",
+        "Analysis"
+      ]
+    },
+    "ripple-map": {
+      "category": "Tools & Utilities",
+      "tags": [
+        "Systems Thinking",
+        "Ripple Effects",
+        "Decision Support",
+        "Interactive Tool"
+      ]
+    },
+    "stillroom": {
+      "category": "Tools & Utilities",
+      "tags": [
+        "Creative Tool",
+        "Experimentation",
+        "Web App"
+      ]
+    },
+    "floorplan": {
+      "category": "Tools & Utilities",
+      "tags": [
+        "Floor Planning",
+        "Interior Design",
+        "Space Planning",
+        "Web App"
+      ]
+    },
+    "dinner-deck": {
+      "category": "Tools & Utilities",
+      "tags": [
+        "Meal Planning",
+        "Recipes",
+        "Shopping Lists",
+        "Productivity"
+      ]
+    },
+    "playlab": {
+      "category": "Learning & Futures",
+      "tags": [
+        "Digital Literacy",
+        "Emerging Technology",
+        "Design Thinking",
+        "Learning by Doing"
+      ]
+    },
+    "design-shift": {
+      "category": "Learning & Futures",
+      "tags": [
+        "Design Thinking",
+        "Learning Tool",
+        "Innovation",
+        "Reflection"
+      ]
+    }
+  }
 }
